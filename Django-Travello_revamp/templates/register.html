@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Registration</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+	<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+					<div class="register_add_user">Sign Up on Travello!</div>
+					<div class="home_search_content">
+							<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+								<form action="register" method="post">
+									{% csrf_token %}
+									<input type="text" name="first_name" placeholder="First Name" required="required"><br>
+									<input type="text" name="last_name" placeholder="Last Name" required="required"><br>
+									<input type="text" name="username" placeholder="Username" required="required"><br>
+									<input type="email" name="email" placeholder="Email" required="required">
+									{% for message in messages %}
+									<span style="color:red">{{message}}</span>
+									{% endfor %}<br>
+									<input type="password" name="password1" placeholder="Password" required="required"><br>
+									<input type="password" name="password2" placeholder="Confirm Password" required="required"><br>
+									<button class="register_submit_button">submit</button>
+								</form>
+
+							</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
